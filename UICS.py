@@ -104,9 +104,15 @@ def rpg():
 	days_of_week = set([DayOfWeek.MONDAY, DayOfWeek.THURSDAY])
 	return Course("ECSE", 4141, "Renewable Power Generation", start_time, end_time, days_of_week)
 
+def calc():
+	start_time = time(hour=16, minute=30)
+	end_time = time(hour=17, minute=50)
+	days_of_week = set([DayOfWeek.TUESDAY, DayOfWeek.FRIDAY])
+	return Course("MATH", 1010, "Calc I", start_time, end_time, days_of_week)
+
 def test_conflict():
 	rcos_course = rcos()
-	rpg_corse = rpg()
+	rpg_corse = calc
 	if rcos_course.conflict(rpg_corse):
 		return "Conflict!"
 	else:
