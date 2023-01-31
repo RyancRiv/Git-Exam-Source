@@ -52,3 +52,9 @@ def rcos():
 
 def alyssa():
 	return "p. hacker"
+
+def ben():
+	return "wazoo"
+
+def willy():
+	return "bitdiddle"
