@@ -69,10 +69,28 @@ class Course:
 		for day in self.days_of_week:
 			if day in other.days_of_week:
 				same_day = True
-				
+
 		starts_later = self.start_time > other.end_time
 		ends_earlier = self.end_time < other.start_time
 		return (not (starts_later or ends_earlier)) and same_day
+	
+	def hours(self):
+		num_days = len(self.days_of_week)
+
+		start = (self.start_time.hour * 3600) + (self.start_time.minute * 60)
+		end = (self.end_time.hour * 3600) + (self.end_time.minute * 60)
+		diff = end - start
+		diff *= num_days
+
+		hours_ = diff // 3600
+		diff = diff % 3600
+		minutes_ = diff / 3600
+
+		if (minutes_ >= 1800): hours += 1
+		
+		return hours_
+
+
 
 def rcos():
 	start_time = time(hour=16, minute=0)
