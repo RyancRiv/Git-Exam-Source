@@ -62,7 +62,7 @@ class Course:
 		self.days_of_week = days_of_week
 	
 	def full_name(self):
-		return self.name
+		return "[{}]-[{}] [{}]".format(self.code, self.number, self.name)
 	
 	def conflict(self, other):
 		starts_later = self.start_time > other.end_time
