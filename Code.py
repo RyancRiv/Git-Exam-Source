@@ -50,5 +50,5 @@
 def rcos():
 	return "Rensselaer Center for Open Source"
 
-def alyssa_p():
+def alyssa():
 	return "p. hacker"
