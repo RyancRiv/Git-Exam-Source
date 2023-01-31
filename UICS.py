@@ -65,9 +65,14 @@ class Course:
 		return self.name
 	
 	def conflict(self, other):
+		same_day = False
+		for day in self.days_of_week:
+			if day in other.days_of_week:
+				same_day = True
+				
 		starts_later = self.start_time > other.end_time
 		ends_earlier = self.end_time < other.start_time
-		return not (starts_later or ends_earlier)
+		return (not (starts_later or ends_earlier)) and same_day
 
 def rcos():
 	start_time = time(hour=16, minute=0)
